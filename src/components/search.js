@@ -23,10 +23,6 @@ class search extends Component {
 	}
 	handleChange({ target }) {
 		this.myVariable=target.value;
-		/*this.setState({
-			[target.name]: target.value,
-			[this.state.time]:5
-		});*/
 	}
 	renderSearchResults=() => {
 		const{results,loaded}=this.state;
@@ -66,7 +62,7 @@ class search extends Component {
 	startTime=()=>{
 		clearInterval(this.timer);
 			this.setState({
-		      	time: 5			
+		      	time: 30			
 			})
 			this.timer=setInterval(() => {
 				this.setState({
@@ -79,7 +75,6 @@ class search extends Component {
 			}, 1000)
 	}
 	onButtonClicked=()=> {
-		console.log(this.myVariable);
 		this.setState({query:this.myVariable},()=>{
 			if(this.state.query===''){
 			this.setState({status:'Empty',results:[],loaded:false});
@@ -92,14 +87,13 @@ class search extends Component {
 			},err=>{
 				console.log("Error");
 			});
-			console.log("Fetched");
 		}
 		});
 	};
 	renderTimer=()=>{
 		if(this.state.loaded){
 			return(
-				<div>Auto Refresh in {this.state.time} Seconds</div>
+				<div>Auto Refresh in <span className="time-color">{this.state.time}</span> Seconds</div>
 			)
 		}
 	}
@@ -108,8 +102,8 @@ class search extends Component {
 			<div className="App container">
 				<div className="panel">
 				    <div className="panel-heading">
-				         <div className="panel-title pull-left">
-				             Search@Twitter
+				         <div className="panel-title pull-left ">
+				            <b> Search@Twitter</b>
 				         </div>
 				        <div className="panel-title pull-right">{this.renderTimer()}</div>
 				        <div className="clearfix"></div>
