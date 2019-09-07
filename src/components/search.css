@@ -1,0 +1,20 @@
+.row{
+	padding: 10px;
+}
+.bg-color{
+	border: 1px solid #c0deed;
+    box-shadow: 1px 1px #c0deed;
+}
+.panel{
+	padding-bottom: 0px;
+    margin: 40px 0 20px;
+}
+.pad-img{
+	padding: 8px;
+}
+.pad-card{
+	padding:10px;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+}
